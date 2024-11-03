@@ -321,6 +321,18 @@ const sendData = () => {
     };
     localStorage.setItem('Cv', JSON.stringify(objCv));
     if (JSON.parse(localStorage.getItem('Cv'))) {
+        // create link for css for a resume to add link in head and script in body
+        const headLink = document.createElement('link');
+        headLink.rel = "stylesheet";
+        headLink.href = "./build/css/resume.css";
+        headLink.classList.add('resume');
+        const getHeadForResume = document.querySelector('head');
+        getHeadForResume.append(headLink);
+        const scriptLink = document.createElement('script');
+        scriptLink.src = "./build/js/resume.js";
+        scriptLink.classList.add('resume');
+        const getBodyForResume = document.querySelector('body');
+        getBodyForResume.append(scriptLink);
         setTimeout(() => {
             const resumeBuilderHtml = document.querySelectorAll('.builder-form');
             resumeBuilderHtml.forEach((e, key) => {
@@ -337,18 +349,6 @@ const sendData = () => {
             // make resume block after submit
             const resume = document.querySelector('.resume');
             resume.style.display = 'block';
-            // create link for css for a resume to add link in head and script in body
-            const headLink = document.createElement('link');
-            headLink.rel = "stylesheet";
-            headLink.href = "./build/css/resume.css";
-            headLink.classList.add('resume');
-            const getHeadForResume = document.querySelector('head');
-            getHeadForResume.append(headLink);
-            const scriptLink = document.createElement('script');
-            scriptLink.src = "./build/js/resume.js";
-            scriptLink.classList.add('resume');
-            const getBodyForResume = document.querySelector('body');
-            getBodyForResume.append(scriptLink);
-        }, 2000);
+        }, 1000);
     }
 };

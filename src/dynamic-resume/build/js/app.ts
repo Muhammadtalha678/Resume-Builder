@@ -441,26 +441,7 @@ const sendData = () => {
     } 
      localStorage.setItem('Cv',JSON.stringify(objCv))
         if (JSON.parse(localStorage.getItem('Cv')!)) {
-            setTimeout(() => {
-                const resumeBuilderHtml = document.querySelectorAll('.builder-form') as NodeListOf<HTMLElement>
-    resumeBuilderHtml.forEach((e,key)=>{
-        // console.log(e);
-        
-        if (key == 0) {
-            e.remove()
-        }
-        if (key == 2) {
-            e.remove()
-        }
-        e.style.display= 'none'
-        // e.remove()
-    })
-    
-    // make resume block after submit
-    const resume = document.querySelector('.resume') as HTMLDivElement
-        resume.style.display = 'block'
-
-    // create link for css for a resume to add link in head and script in body
+             // create link for css for a resume to add link in head and script in body
     const headLink  = document.createElement('link') as HTMLLinkElement
 
     headLink.rel = "stylesheet"
@@ -477,7 +458,25 @@ const sendData = () => {
 
     const getBodyForResume = document.querySelector('body') as HTMLBodyElement
     getBodyForResume.append(scriptLink)
-            }, 2000);   
+            setTimeout(() => {
+                const resumeBuilderHtml = document.querySelectorAll('.builder-form') as NodeListOf<HTMLElement>
+                 resumeBuilderHtml.forEach((e,key)=>{
+        // console.log(e);
+        
+        if (key == 0) {
+            e.remove()
+        }
+        if (key == 2) {
+            e.remove()
+        }
+        e.style.display= 'none'
+        // e.remove()
+    })
+    
+    // make resume block after submit
+    const resume = document.querySelector('.resume') as HTMLDivElement
+        resume.style.display = 'block'
+            }, 1000);   
 
      
         }
