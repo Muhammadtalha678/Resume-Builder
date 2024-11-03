@@ -332,21 +332,21 @@ const sendData = () => {
     scriptLink.classList.add('resume');
     const getBodyForResume = document.querySelector('body');
     getBodyForResume.append(scriptLink);
-    if (JSON.parse(localStorage.getItem('Cv'))) {
-        const resumeBuilderHtml = document.querySelectorAll('.builder-form');
-        resumeBuilderHtml.forEach((e, key) => {
-            // console.log(e);
-            if (key == 0) {
-                e.remove();
-            }
-            if (key == 2) {
-                e.remove();
-            }
-            e.style.display = 'none';
-            // e.remove()
-        });
-        // make resume block after submit
-        const resume = document.querySelector('.resume');
-        resume.style.display = 'block';
-    }
+    // if (JSON.parse(localStorage.getItem('Cv')!)) {
+    const resumeBuilderHtml = document.querySelectorAll('.builder-form');
+    resumeBuilderHtml.forEach((e, key) => {
+        // console.log(e);
+        if (key == 0) {
+            e.remove();
+        }
+        if (key == 2) {
+            e.remove();
+        }
+        e.style.display = 'none';
+        // e.remove()
+    });
+    // make resume block after submit
+    const resume = document.querySelector('.resume');
+    resume.style.display = 'block';
 };
+// }
