@@ -440,26 +440,7 @@ const sendData = () => {
         skill:skills.value.toString()
     } 
      localStorage.setItem('Cv',JSON.stringify(objCv))
-     // create link for css for a resume to add link in head and script in body
-    const headLink  = document.createElement('link') as HTMLLinkElement
 
-    headLink.rel = "stylesheet"
-    headLink.href = "./build/css/resume.css"
-    headLink.classList.add('resume')
-    
-    const getHeadForResume = document.querySelector('head') as HTMLHeadElement
-    getHeadForResume.append(headLink)
-    
-    const scriptLink  = document.createElement('script') as HTMLScriptElement
-
-    scriptLink.src = "./build/js/resume.js"
-    scriptLink.classList.add('resume')
-
-    const getBodyForResume = document.querySelector('body') as HTMLBodyElement
-    getBodyForResume.append(scriptLink)
-    
-        // if (JSON.parse(localStorage.getItem('Cv')!)) {
-            
     const resumeBuilderHtml = document.querySelectorAll('.builder-form') as NodeListOf<HTMLElement>
     resumeBuilderHtml.forEach((e,key)=>{
         // console.log(e);
@@ -477,8 +458,25 @@ const sendData = () => {
     // make resume block after submit
     const resume = document.querySelector('.resume') as HTMLDivElement
         resume.style.display = 'block'
- 
-        }
+
+    // create link for css for a resume to add link in head and script in body
+    const headLink  = document.createElement('link') as HTMLLinkElement
+
+    headLink.rel = "stylesheet"
+    headLink.href = "./build/css/resume.css"
+    headLink.classList.add('resume')
+    
+    const getHeadForResume = document.querySelector('head') as HTMLHeadElement
+    getHeadForResume.append(headLink)
+    
+    const scriptLink  = document.createElement('script') as HTMLScriptElement
+
+    scriptLink.src = "./build/js/resume.js"
+    scriptLink.classList.add('resume')
+
+    const getBodyForResume = document.querySelector('body') as HTMLBodyElement
+    getBodyForResume.append(scriptLink)
      
-// }
+     
+}
 
