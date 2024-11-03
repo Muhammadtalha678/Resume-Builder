@@ -441,42 +441,44 @@ const sendData = () => {
     } 
      localStorage.setItem('Cv',JSON.stringify(objCv))
 
-    const resumeBuilderHtml = document.querySelectorAll('.builder-form') as NodeListOf<HTMLElement>
-    resumeBuilderHtml.forEach((e,key)=>{
-        // console.log(e)
+    setTimeout(() => {
+        const resumeBuilderHtml = document.querySelectorAll('.builder-form') as NodeListOf<HTMLElement>
+        resumeBuilderHtml.forEach((e,key)=>{
+            // console.log(e)
+            
+            if (key == 0) {
+                e.remove()
+            }
+            if (key == 2) {
+                e.remove()
+            }
+            e.style.display= 'none'
+            // e.remove()
+        })
         
-        if (key == 0) {
-            e.remove()
-        }
-        if (key == 2) {
-            e.remove()
-        }
-        e.style.display= 'none'
-        // e.remove()
-    })
+        // make resume block after submit
+        const resume = document.querySelector('.resume') as HTMLDivElement
+            resume.style.display = 'block'
     
-    // make resume block after submit
-    const resume = document.querySelector('.resume') as HTMLDivElement
-        resume.style.display = 'block'
-
-    // create link for css for a resume to add link in head and script in body
-    const headLink  = document.createElement('link') as HTMLLinkElement
-
-    headLink.rel = "stylesheet"
-    headLink.href = "./build/css/resume.css"
-    headLink.classList.add('resume')
+        // create link for css for a resume to add link in head and script in body
+        const headLink  = document.createElement('link') as HTMLLinkElement
     
-    const getHeadForResume = document.querySelector('head') as HTMLHeadElement
-    getHeadForResume.append(headLink)
+        headLink.rel = "stylesheet"
+        headLink.href = "./build/css/resume.css"
+        headLink.classList.add('resume')
+        
+        const getHeadForResume = document.querySelector('head') as HTMLHeadElement
+        getHeadForResume.append(headLink)
+        
+        const scriptLink  = document.createElement('script') as HTMLScriptElement
     
-    const scriptLink  = document.createElement('script') as HTMLScriptElement
-
-    scriptLink.src = "./build/js/resume.js"
-    scriptLink.classList.add('resume')
-
-    const getBodyForResume = document.querySelector('body') as HTMLBodyElement
-    getBodyForResume.append(scriptLink)
-     
+        scriptLink.src = "./build/js/resume.js"
+        scriptLink.classList.add('resume')
+    
+        const getBodyForResume = document.querySelector('body') as HTMLBodyElement
+        getBodyForResume.append(scriptLink)
+         
+    }, 500);
      
 }
 
