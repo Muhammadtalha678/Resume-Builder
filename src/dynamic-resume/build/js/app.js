@@ -50,6 +50,7 @@ const switchToResumeView = () => {
     document.body.appendChild(scriptLink);
     // Display the resume block after CSS has loaded
     requestAnimationFrame(() => {
+        console.log("block)
         const resume = document.querySelector('.resume');
         resume.style.display = 'block';
     });
