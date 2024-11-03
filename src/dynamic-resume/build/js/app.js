@@ -322,7 +322,7 @@ const sendData = () => {
     localStorage.setItem('Cv', JSON.stringify(objCv));
     const resumeBuilderHtml = document.querySelectorAll('.builder-form');
     resumeBuilderHtml.forEach((e, key) => {
-        // console.log(e);
+        // console.log(e)
         if (key == 0) {
             e.remove();
         }

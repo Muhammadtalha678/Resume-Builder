@@ -443,7 +443,7 @@ const sendData = () => {
 
     const resumeBuilderHtml = document.querySelectorAll('.builder-form') as NodeListOf<HTMLElement>
     resumeBuilderHtml.forEach((e,key)=>{
-        // console.log(e);
+        // console.log(e)
         
         if (key == 0) {
             e.remove()
