@@ -440,8 +440,7 @@ const sendData = () => {
         skill:skills.value.toString()
     } 
      localStorage.setItem('Cv',JSON.stringify(objCv))
-        if (JSON.parse(localStorage.getItem('Cv')!)) {
-             // create link for css for a resume to add link in head and script in body
+     // create link for css for a resume to add link in head and script in body
     const headLink  = document.createElement('link') as HTMLLinkElement
 
     headLink.rel = "stylesheet"
@@ -458,9 +457,11 @@ const sendData = () => {
 
     const getBodyForResume = document.querySelector('body') as HTMLBodyElement
     getBodyForResume.append(scriptLink)
-            setTimeout(() => {
-                const resumeBuilderHtml = document.querySelectorAll('.builder-form') as NodeListOf<HTMLElement>
-                 resumeBuilderHtml.forEach((e,key)=>{
+    
+        if (JSON.parse(localStorage.getItem('Cv')!)) {
+            
+    const resumeBuilderHtml = document.querySelectorAll('.builder-form') as NodeListOf<HTMLElement>
+    resumeBuilderHtml.forEach((e,key)=>{
         // console.log(e);
         
         if (key == 0) {
@@ -476,9 +477,7 @@ const sendData = () => {
     // make resume block after submit
     const resume = document.querySelector('.resume') as HTMLDivElement
         resume.style.display = 'block'
-            }, 1000);   
-
-     
+ 
         }
      
 }
