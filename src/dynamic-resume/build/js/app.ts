@@ -440,7 +440,8 @@ const sendData = () => {
         skill:skills.value.toString()
     } 
      localStorage.setItem('Cv',JSON.stringify(objCv))
-
+        if (JSON.parse(localStorage.getItem('Cv')!)) {
+            
     const resumeBuilderHtml = document.querySelectorAll('.builder-form') as NodeListOf<HTMLElement>
     resumeBuilderHtml.forEach((e,key)=>{
         // console.log(e);
@@ -477,6 +478,7 @@ const sendData = () => {
     const getBodyForResume = document.querySelector('body') as HTMLBodyElement
     getBodyForResume.append(scriptLink)
      
+        }
      
 }
 
