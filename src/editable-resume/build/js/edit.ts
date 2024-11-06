@@ -582,7 +582,8 @@ editData.addEventListener('click',function (this) {
     scriptLink.classList.add('resume')
 
     const getBodyForResume = document.querySelector('body') as HTMLBodyElement
-    getBodyForResume.append(scriptLink)    
+    getBodyForResume.append(scriptLink)  
+    location.reload();  
     }
     
 })
