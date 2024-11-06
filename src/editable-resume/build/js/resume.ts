@@ -103,7 +103,6 @@ cvData.educationDetails.forEach((object)=>{
 //Certification 
 const profileCertification = document.querySelector('.certificate div') as HTMLDivElement
 if (typeof cvData.certficationDetails == 'string') {
-    console.log(typeof cvData.certficationDetails);
     profileCertification.innerHTML +=`
         <p><strong>${cvData.certficationDetails}</strong></p>    
     `    
@@ -123,7 +122,6 @@ else{
 //Experience 
 const profileExperience = document.querySelector('.experience div') as HTMLDivElement
 if (typeof cvData.experienceDetails == 'string') {
-    // console.log(typeof cvData.certficationDetails);
     profileExperience.innerHTML +=`
         <p><strong>${cvData.experienceDetails}</strong></p>    
     `    
@@ -156,7 +154,6 @@ function createNewCv ()  {
     localStorage.removeItem('Cv')
     const resumeHtml = document.querySelectorAll('.resume') as NodeListOf<HTMLElement>
     resumeHtml.forEach((e,key)=>{
-        // console.log(e);
         
         if (key == 0) {
             e.remove()
@@ -180,7 +177,6 @@ function createNewCv ()  {
     
     const getHeadForResumeBuilder = document.querySelector('head') as HTMLHeadElement
     getHeadForResumeBuilder.append(headLinkResumeBuilder)
-    console.log("rrrrrrr");
 
     // script resume builder
     const scriptLinkResumeBuilder  = document.createElement('script') as HTMLScriptElement
@@ -202,7 +198,6 @@ const editCv = document.querySelector('.editCv') as HTMLButtonElement
 editCv.addEventListener('click',function(this){
     const resumeHtml = document.querySelectorAll('.resume') as NodeListOf<HTMLElement>
     resumeHtml.forEach((e,key)=>{
-        // console.log(e);
         
         if (key == 0) {
             e.remove()
@@ -226,7 +221,6 @@ editCv.addEventListener('click',function(this){
     
     const getHeadForResumeBuilder = document.querySelector('head') as HTMLHeadElement
     getHeadForResumeBuilder.append(headLinkResumeBuilder)
-    console.log("rrrrrrr");
 
     // script resume builder
     const scriptLinkResumeBuilder  = document.createElement('script') as HTMLScriptElement

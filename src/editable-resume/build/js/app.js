@@ -1,9 +1,7 @@
 "use strict";
 if (JSON.parse(localStorage.getItem('Cv'))) {
-    // console.log('hasData');
     const resumeBuilderHtml = document.querySelectorAll('.builder-form');
     resumeBuilderHtml.forEach((e, key) => {
-        // console.log(e);
         if (key == 0) {
             e.remove();
         }
@@ -322,7 +320,6 @@ const sendData = () => {
     localStorage.setItem('Cv', JSON.stringify(objCv));
     const resumeBuilderHtml = document.querySelectorAll('.builder-form');
     resumeBuilderHtml.forEach((e, key) => {
-        // console.log(e)
         if (key == 0) {
             e.remove();
         }

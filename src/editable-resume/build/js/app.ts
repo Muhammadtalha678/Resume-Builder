@@ -1,10 +1,8 @@
 
 if (JSON.parse(localStorage.getItem('Cv')!)) {
-    // console.log('hasData');
     
     const resumeBuilderHtml = document.querySelectorAll('.builder-form') as NodeListOf<HTMLElement>
     resumeBuilderHtml.forEach((e,key)=>{
-        // console.log(e);
         
         if (key == 0) {
             e.remove()
@@ -443,7 +441,6 @@ const sendData = () => {
 
      const resumeBuilderHtml = document.querySelectorAll('.builder-form') as NodeListOf<HTMLElement>
         resumeBuilderHtml.forEach((e,key)=>{
-            // console.log(e)
             
             if (key == 0) {
                 e.remove()

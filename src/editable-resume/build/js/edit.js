@@ -111,7 +111,6 @@ if (editDataCv) {
     }
     //experience Inputs
     const experienceSec = document.getElementById('experienceSectionEdit');
-    //  console.log(typeof editDataCv.experienceDetails);
     if (typeof editDataCv.experienceDetails === 'string') {
         experienceSec.innerHTML = `
          <div class="experience-buttons" style="display: none;">
@@ -226,7 +225,6 @@ const addCerticateEdit = () => {
     const certificationTitle = getLastCertInputs.querySelector('.certificationTitleEdit');
     const certificationIssuer = getLastCertInputs.querySelector('.certificationIssuerEdit');
     const certificationDate = getLastCertInputs.querySelector('.certificationDateEdit');
-    console.log(certificationInputs);
     if (!certificationTitle.value.trim() || !certificationIssuer.value.trim() || !certificationDate.value.trim()) {
         alert('Please fill all field in the current certificate section before adding more.');
         return;
@@ -426,10 +424,9 @@ editData.addEventListener('click', function () {
     }
     if (!JSON.parse(localStorage.getItem('Cv'))) {
         localStorage.setItem('Cv', JSON.stringify(objCv));
-        console.log(objCv);
+        location.reload();
         const resumeBuilderHtml = document.querySelectorAll('.editable-form');
         resumeBuilderHtml.forEach((e, key) => {
-            // console.log(e)
             if (key == 0) {
                 e.remove();
             }

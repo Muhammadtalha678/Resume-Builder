@@ -54,7 +54,6 @@ if (JSON.parse(localStorage.getItem('Cv'))) {
     //Certification 
     const profileCertification = document.querySelector('.certificate div');
     if (typeof cvData.certficationDetails == 'string') {
-        console.log(typeof cvData.certficationDetails);
         profileCertification.innerHTML += `
         <p><strong>${cvData.certficationDetails}</strong></p>    
     `;
@@ -72,7 +71,6 @@ if (JSON.parse(localStorage.getItem('Cv'))) {
     //Experience 
     const profileExperience = document.querySelector('.experience div');
     if (typeof cvData.experienceDetails == 'string') {
-        // console.log(typeof cvData.certficationDetails);
         profileExperience.innerHTML += `
         <p><strong>${cvData.experienceDetails}</strong></p>    
     `;
@@ -100,7 +98,6 @@ function createNewCv() {
     localStorage.removeItem('Cv');
     const resumeHtml = document.querySelectorAll('.resume');
     resumeHtml.forEach((e, key) => {
-        // console.log(e);
         if (key == 0) {
             e.remove();
         }
@@ -120,7 +117,6 @@ function createNewCv() {
     headLinkResumeBuilder.classList.add('builder-form');
     const getHeadForResumeBuilder = document.querySelector('head');
     getHeadForResumeBuilder.append(headLinkResumeBuilder);
-    console.log("rrrrrrr");
     // script resume builder
     const scriptLinkResumeBuilder = document.createElement('script');
     scriptLinkResumeBuilder.src = "./build/js/app.js";
@@ -135,7 +131,6 @@ const editCv = document.querySelector('.editCv');
 editCv.addEventListener('click', function () {
     const resumeHtml = document.querySelectorAll('.resume');
     resumeHtml.forEach((e, key) => {
-        // console.log(e);
         if (key == 0) {
             e.remove();
         }
@@ -155,7 +150,6 @@ editCv.addEventListener('click', function () {
     headLinkResumeBuilder.classList.add('builder-form', 'editable-form');
     const getHeadForResumeBuilder = document.querySelector('head');
     getHeadForResumeBuilder.append(headLinkResumeBuilder);
-    console.log("rrrrrrr");
     // script resume builder
     const scriptLinkResumeBuilder = document.createElement('script');
     scriptLinkResumeBuilder.src = "./build/js/edit.js";
