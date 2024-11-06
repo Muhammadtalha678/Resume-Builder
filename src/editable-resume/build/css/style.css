@@ -1,0 +1,124 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4;
+}
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+h1 {
+    text-align: center;
+    color: #333;
+}
+h2 {
+    color: #333;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 100%;
+}
+input, textarea {
+    display: block;
+    margin: 10px 0;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+button:hover {
+    background-color: #218838;
+}
+.small-button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: auto;
+    display: inline-block;
+    margin: 5px 2px;
+}
+.small-button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 600px) {
+    input, textarea, button {
+        width: 100%;
+    }
+}
+.certification-inputs,.experience-inputs {
+    display: none;
+}
+.cross-button{
+    background: none;
+     border: none;
+     color: red;
+     cursor: pointer;
+    font-size: large;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    width: auto;
+    margin: 5px 2px;
+
+}
+.cross-button:hover{
+    background-color: #f00;
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.certificate-buttons,.experience-buttons{
+    display: block;
+}
+
+.image-container {
+    display: none;
+    text-align: center;
+    margin: 20px 0;
+}
+#imagePreview {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+#imagePreviewEdit {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.resume{
+    display: none;
+}
+.builder-form{
+    display: block;
+}
+
+.editable-form{
+    display: none;
+}
