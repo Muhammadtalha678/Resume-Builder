@@ -472,7 +472,7 @@ const sendData = () => {
     
         const getBodyForResume = document.querySelector('body') as HTMLBodyElement
         getBodyForResume.append(scriptLink)
-     
+     location.reload()
 }
 
 

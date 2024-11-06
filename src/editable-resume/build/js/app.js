@@ -343,4 +343,5 @@ const sendData = () => {
     scriptLink.classList.add('resume');
     const getBodyForResume = document.querySelector('body');
     getBodyForResume.append(scriptLink);
+    location.reload();
 };
