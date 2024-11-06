@@ -1,10 +1,10 @@
 
 if (JSON.parse(localStorage.getItem('Cv')!)) {
-    // console.log('hasData');
+    
     
     const resumeBuilderHtml = document.querySelectorAll('.builder-form') as NodeListOf<HTMLElement>
     resumeBuilderHtml.forEach((e,key)=>{
-        // console.log(e);
+        
         
         if (key == 0) {
             e.remove()
@@ -441,10 +441,10 @@ const sendData = () => {
     } 
      localStorage.setItem('Cv',JSON.stringify(objCv))
 
-    setTimeout(() => {
+   
         const resumeBuilderHtml = document.querySelectorAll('.builder-form') as NodeListOf<HTMLElement>
         resumeBuilderHtml.forEach((e,key)=>{
-            // console.log(e)
+            
             
             if (key == 0) {
                 e.remove()
@@ -477,8 +477,6 @@ const sendData = () => {
     
         const getBodyForResume = document.querySelector('body') as HTMLBodyElement
         getBodyForResume.append(scriptLink)
-         
-    }, 500);
-     
+     location.reload()
 }
 
