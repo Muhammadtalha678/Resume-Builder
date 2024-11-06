@@ -196,8 +196,8 @@ function createNewCv ()  {
 
 
 // for editabel Cv
-const EditForm = document.querySelector('.editable-form') as HTMLDivElement
-EditForm.style.display = 'none' 
+const editForm = document.querySelector('.editable-form') as HTMLDivElement
+editForm.style.display = 'none' 
 const editCv = document.querySelector('.editCv') as HTMLButtonElement
 editCv.addEventListener('click',function(this){
     const resumeHtml = document.querySelectorAll('.resume') as NodeListOf<HTMLElement>

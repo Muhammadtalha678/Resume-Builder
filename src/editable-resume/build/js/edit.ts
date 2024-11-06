@@ -29,23 +29,23 @@ interface CvData{
     experienceDetails:string|Experience[],
     skill:string
 }
-const data:CvData = JSON.parse(localStorage.getItem('Cv')!)
+const editDataCv:CvData = JSON.parse(localStorage.getItem('Cv')!)
 var imageEditUrl:string
-if (data) {
+if (editDataCv) {
     
     //pofile Details
     const profileSection = document.getElementById('profileDetails') as HTMLElement
     profileSection.innerHTML += ` <h2>Profile Details</h2>
-            <input type="text" id="nameEdit" placeholder="Name" value = "${data.name}"/>
-            <input type="email" id="emailEdit" placeholder="Email" value = "${data.email}"/>
-            <input type="url" id="githubEdit" placeholder="GitHub Link (Optional)" value = "${data.github}"/>
-            <input type="url" id="linkedinEdit" placeholder="LinkedIn Profile (Optional)" value = "${data.linkedin}"/>
-            <input type="tel" id="phoneEdit" placeholder="Phone" value = "${data.phone}"/>
-            <textarea id="profileSummaryEdit"  placeholder="Profile Summary">${data.profileSummary}</textarea>`
+            <input type="text" id="nameEdit" placeholder="Name" value = "${editDataCv.name}"/>
+            <input type="email" id="emailEdit" placeholder="Email" value = "${editDataCv.email}"/>
+            <input type="url" id="githubEdit" placeholder="GitHub Link (Optional)" value = "${editDataCv.github}"/>
+            <input type="url" id="linkedinEdit" placeholder="LinkedIn Profile (Optional)" value = "${editDataCv.linkedin}"/>
+            <input type="tel" id="phoneEdit" placeholder="Phone" value = "${editDataCv.phone}"/>
+            <textarea id="profileSummaryEdit"  placeholder="Profile Summary">${editDataCv.profileSummary}</textarea>`
     
      //education Section
      const educationSec = document.getElementById('educationSectionEdit') as HTMLElement
-     data.educationDetails.forEach((e,key)=>{
+     editDataCv.educationDetails.forEach((e,key)=>{
          if (key === 0 ) {
              educationSec.innerHTML = `<div class="education-inputs" id="educationInputsEdit">
                      <h2>Education</h2>
@@ -79,7 +79,7 @@ if (data) {
      const certificationSec = document.getElementById('certificationSectionEdit') as HTMLElement
     //  
      
-     if (typeof data.certficationDetails === 'string') {
+     if (typeof editDataCv.certficationDetails === 'string') {
         certificationSec.innerHTML = `
         <div class="certificate-buttons" style="display: none;">
                 <h2>Certifications</h2>
@@ -103,7 +103,7 @@ if (data) {
         `
      }
      else{
-       data.certficationDetails.forEach((e,key)=>{
+       editDataCv.certficationDetails.forEach((e,key)=>{
         if (key === 0) {
             certificationSec.innerHTML = `
             <div class="certificate-buttons" style="display: none;">
@@ -149,9 +149,9 @@ if (data) {
      
      //experience Inputs
      const experienceSec = document.getElementById('experienceSectionEdit') as HTMLElement
-    //  console.log(typeof data.experienceDetails);
+    //  console.log(typeof editDataCv.experienceDetails);
      
-      if (typeof data.experienceDetails === 'string') {
+      if (typeof editDataCv.experienceDetails === 'string') {
         experienceSec.innerHTML = `
          <div class="experience-buttons" style="display: none;">
                 <h2>Experience</h2>
@@ -168,13 +168,13 @@ if (data) {
             </div>
             <div id="noExperienceEdit" style="display: block;">
                 <h2>Experience</h2>
-                <textarea id="noExperienceProile" placeholder="Write any thing about Expereience">${data.experienceDetails}</textarea>
+                <textarea id="noExperienceProile" placeholder="Write any thing about Expereience">${editDataCv.experienceDetails}</textarea>
             </div>
             <button class="small-button experience" style="display: none;" onclick="addExperienceEdit()">Add More Experience</button>
         `
      }
      else{
-        data.experienceDetails.forEach((e,key)=>{
+        editDataCv.experienceDetails.forEach((e,key)=>{
             if (key === 0) {
                 experienceSec.innerHTML = `
                  <div class="experience-buttons" style="display: none;">
@@ -219,15 +219,15 @@ if (data) {
 
      //skills
      const skillsSec = document.querySelector('#skillSectionEdit textarea') as HTMLTextAreaElement
-     skillsSec.value = data.skill
+     skillsSec.value = editDataCv.skill
 
 
-    if (data.imageUrl) {
+    if (editDataCv.imageUrl) {
         
         const imageInput = document.querySelector('#profileImage')
         const ImageCon = document.querySelector('#EditImageContainer') as HTMLDivElement
         const imagePreview = document.querySelector('#imagePreviewEdit') as HTMLImageElement
-        imagePreview.src = data.imageUrl.toString() 
+        imagePreview.src = editDataCv.imageUrl.toString() 
         ImageCon.style.display = 'block'
     }
     
@@ -414,7 +414,7 @@ const handleEducationInputsEdit = ():Education[] => {
 const handleCertificationsInputsEdit = ():string | Certification[] =>{
     const noCerticateEdit = document.getElementById('noCertificationEdit') as HTMLDivElement
     if (noCerticateEdit.style.display === 'block') {
-        return data.certficationDetails
+        return editDataCv.certficationDetails
     }
     else{
 
@@ -455,7 +455,7 @@ const handleExperienceInputsEdit = ():string | Experience[]=> {
     let ExperienceInputs:Experience[] = []
     const noExperienceEdit = document.getElementById('noExperienceEdit') as HTMLDivElement
     if (noExperienceEdit.style.display === 'block') {
-        return data.experienceDetails
+        return editDataCv.experienceDetails
     }
     else{
             
@@ -537,7 +537,7 @@ editData.addEventListener('click',function (this) {
         linkedin:linkedin.value,
         phone:phone.value,
         profileSummary:profileSummary.value,
-        imageUrl:imageEditUrl?imageEditUrl:data.imageUrl,
+        imageUrl:imageEditUrl?imageEditUrl:editDataCv.imageUrl,
         educationDetails:allEduDetails,
         certficationDetails:allCertificationDetails,
         experienceDetails:allExperienceDetails,

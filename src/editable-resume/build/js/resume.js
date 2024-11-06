@@ -129,8 +129,8 @@ function createNewCv() {
     getBodyForResumeBuilder.append(scriptLinkResumeBuilder);
 }
 // for editabel Cv
-const EditForm = document.querySelector('.editable-form');
-EditForm.style.display = 'none';
+const editForm = document.querySelector('.editable-form');
+editForm.style.display = 'none';
 const editCv = document.querySelector('.editCv');
 editCv.addEventListener('click', function () {
     const resumeHtml = document.querySelectorAll('.resume');
