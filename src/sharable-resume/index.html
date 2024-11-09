@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <title>Editable Resume Builder</title>
+    <link rel="stylesheet" href="./build/css/style.css" class="builder-form">       
+</head>
+<body>
+    <div class="container builder-form">
+        <h1>Editable Resume Builder </h1>
+        <!-- Profile Details -->
+        <section>
+            <h2>Profile Details</h2>
+            <input type="text" id="name" placeholder="Name" />
+            <input type="email" id="email" placeholder="Email" />
+            <input type="url" id="github" placeholder="GitHub Link (Optional)" />
+            <input type="url" id="linkedin" placeholder="LinkedIn Profile (Optional)" />
+            <input type="tel" id="phone" placeholder="Phone" />
+            <textarea id="profileSummary"  placeholder="Profile Summary"></textarea>
+        </section>
+         <!-- Image Section -->
+         <section>
+            <h2>Profile Image</h2>
+            <p style="color: #f00;font-size: 12px;">Image must be a jpg,png</p>
+            <div class="image-container">
+                <img id="imagePreview" src="" alt="Image Preview" />
+            </div>
+            <input type="file" id="profileImage" accept="image/*" onchange="imageShow(this)"/>
+        </section>
+        <!-- End Image Section -->
+        <!-- End Profile Details -->
+
+        <!-- Education Section -->
+        <section id="educationSection">
+            <div class="education-inputs" id="educationInputs">
+                <h2>Education</h2>
+                <input type="text" id="educationTitle" placeholder="Education Titles" />
+                <input type="text" id="institution" placeholder="Institution" />
+                <input type="text" id="educationDuration" placeholder="Duration" />
+            </div>
+            <button class="small-button" onclick="addEducation()">Add More Education</button>
+        </section>
+        <!--End Education Section -->
+
+        <!-- Certificaton Sections -->
+        <section id="certificationSection">
+            <div class="certificate-buttons" style="display: block;">
+                <h2>Certifications</h2>
+                <div>
+                    <button class="small-button" onclick="certificateInputs('yes')">I have certifications</button>
+                    <button class="small-button" onclick="certificateInputs('no')">I have no certifications</button>
+                </div>
+            </div>
+            <div class="certification-inputs" id="certificationInputs">
+                <h2>Certifications</h2>
+                <input type="text" class="certificationTitle" placeholder="Certification Title" />
+                <input type="text" class="certificationIssuer" placeholder="Issuer" />
+                <input type="text" class="certificationDate" placeholder="Date Obtained" />
+            </div>
+            <div id="noCertification" style="display: none;">
+                <h2>Certifications</h2>
+                <p >I have No Certificates to display.</p>
+                
+            </div>
+            <button class="small-button certificate" style="display: none;" onclick="addCerticate()">Add More Certifcates</button>
+        </section>
+        <!-- End Certificaton Sections -->
+
+        <!-- Experience Sections -->
+        <section id="experienceSection">
+            <div class="experience-buttons" style="display: block;">
+                <h2>Experience</h2>
+                <div>
+                    <button class="small-button" onclick="experienceInputs('yes')">I have experience</button>
+                    <button class="small-button" onclick="experienceInputs('no')">I have no experience</button>
+                </div>
+            </div>
+            <div class="experience-inputs" id="experienceInputs">
+                <h2>Experience</h2>
+                <input type="text" class="experienceTitle" placeholder="Job" />
+                <input type="text" class="experienceCompany" placeholder="Company" />
+                <input type="text" class="experienceYear" placeholder="Duration" />
+            </div>
+            <div id="noExperience" style="display: none;">
+                <h2>Experience</h2>
+                <textarea id="noExperienceProile" placeholder="Write any thing about Expereience"></textarea>
+            </div>
+            <button class="small-button experience" style="display: none;" onclick="addExperience()">Add More Experience</button>
+        </section>
+        <!-- End Experience Sections -->
+        
+        <h2>Skills</h2>
+        <textarea id="skills" placeholder="Skills (comma separated)"></textarea>
+        <button onclick="sendData()">Submit CV</button>
+    </div>
+    <div class="container resume">
+        <div id="modal">
+            <div id="modal-content">
+                <h2>Choose an Option</h2>
+                <button class="modal-button download-btn" onclick="downloadPDF()">Download PDF</button>
+                <button class="modal-button share-btn" onclick="shareURL()">Share URL</button>
+                <button class="modal-button" onclick="closeModal()">Close</button>
+            </div>
+        </div>
+        <!-- CV Header Structure -->
+        <div class="cv-header">
+            <!-- Left side: Image and Name -->
+            <div class="profile-info">
+                <img src="" alt="Profile Picture">
+                <div class="name"></div>
+            </div>
+
+            <!-- Right side: Contact Information -->
+            <div class="contact-info">
+                <ul>
+                    <!-- <li><b>Email: <i>muhammadtalha0110@example.com</i></b></li>
+                    <li><b>GitHub: <i><a target="_blank" style="text-decoration: none; color: #007bff;" href="https://github.com/Muhammadtalha678">https://github.com/Muhammadtalha678</a></i></b></li>
+                    <li><b>Linkedin: <i><a target="_blank" style="text-decoration: none; color: #007bff;" href="https://www.linkedin.com/in/muhammad-talha-93003221b/">https://www.linkedin.com/in/muhammad-talha-93003221b/</a></i></b></li>
+                    <li><b>Contact: <i>+923 493 445479</i></b></li> -->
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Section -->
+        <div class="main-section">
+            <!-- Profile Summary -->
+            <div class="section profile-summary">
+                <h2>
+                    Profile Summary
+                    <button class="toggle-btn hide-button"  >Hide</button>
+                </h2>
+                <div class="section-content">
+                    <p > 
+                        
+                    </p>
+                </div>
+            </div>
+
+            <!-- Education Section -->
+            <div class="section education">
+                <h2>
+                    Education
+                    <button class="toggle-btn hide-button"  >Hide</button>
+                </h2>
+                <div class="section-content">
+                    <!-- Education data come from cvData Object -->
+                </div>
+            </div>
+
+            <!-- Certification Section -->
+            <div class="section certificate">
+                <h2>
+                    Certification
+                    <button class="toggle-btn hide-button">Hide</button>
+                </h2>
+                <div class="section-content">
+                    <!-- //get data from cv data if string or education array  -->
+                </div>
+            </div>
+
+            <!-- Experience Section -->
+            <div class="section experience">
+                <h2>
+                    Experience
+                    <button class="toggle-btn hide-button"  >Hide</button>
+                </h2>
+                <div class="section-content">
+                    <!-- get experience data from cv object   -->
+                </div>
+            </div>
+
+            <!-- Skills Section -->
+            <div class="section skills">
+                <h2>
+                    Skills
+                    <button class="toggle-btn hide-button"  >Hide</button>
+                </h2>
+                <div class="section-content">
+                    <ul>
+                        <!-- get li from cv object -->
+                    </ul>
+                </div>
+            </div>
+
+            <!-- create new cv button -->
+            <div style="display: flex;justify-content: space-between;align-items: center;margin-top: 1em;">
+                <button style="
+                 background-color: #000;
+                color: white;
+                border: none;
+                padding: 10px 10px;
+                cursor: pointer;
+                border-radius: 4px;
+                font-size: 14px;cursor: pointer;"
+                onclick="createNewCv()"
+                >
+                    Create new Cv
+                </button>
+                <button style="
+                 background-color: #000;
+                color: white;
+                border: none;
+                padding: 10px 10px;
+                cursor: pointer;
+                border-radius: 4px;
+                font-size: 14px;cursor: pointer;"
+                onclick="openModal()"
+                >
+                    Share Cv
+                </button>
+                <button style="
+                 background-color: #000;
+                color: white;
+                border: none;
+                padding: 10px 10px;
+                cursor: pointer;
+                border-radius: 4px;
+                font-size: 14px;cursor: pointer;"
+                class="editCv"
+                >
+                    Edit Cv
+                </button>
+            </div>
+
+        </div>
+        
+    </div>
+    <div class="container editable-form">
+        <h1>Dynamic Resume Builder</h1>
+        <!-- Profile Details -->
+        <section id="profileDetails">
+            
+        </section>
+         <!-- Image Section -->
+         <section id="imageView">
+            <h2>Profile Image</h2>
+            <p style="color: #f00;font-size: 12px;">Image must be a jpg,png</p>
+            <div class="image-container" id="EditImageContainer">
+                <img id="imagePreviewEdit" src="" alt="Image Preview" />
+            </div>
+            <input type="file" id="profileImage" accept="image/*" onchange="imageShowEdit(this)"/>
+        </section>
+        <!-- End Image Section -->
+        <!-- End Profile Details -->
+
+        <!-- Education Section -->
+        <section id="educationSectionEdit">
+            
+        </section>
+        <!--End Education Section -->
+
+        <!-- Certificaton Sections -->
+        <section id="certificationSectionEdit">
+            
+        </section>
+        <!-- End Certificaton Sections -->
+
+        <!-- Experience Sections -->
+        <section id="experienceSectionEdit">
+        </section>
+        <!-- End Experience Sections -->
+        
+        <section id="skillSectionEdit">
+            <h2>Skills</h2>
+             <textarea id="skillsEdit" placeholder="Skills (comma separated)"></textarea>
+         </section>
+        <button class="editData">Submit CV</button>
+    </div>
+
+    <script src="./build/js/app.js" class="builder-form"></script>
+   
+</body>
+</html>
